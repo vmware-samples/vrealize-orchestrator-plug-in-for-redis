@@ -9,13 +9,13 @@ Plug-in features:
 * Operations for scripting with Lua
 * Cluster configurations are currently not supported
 
-### Plugin download
+## Plugin download
 [o11nplugin-redis.vmoapp](https://github.com/vmware-samples/vrealize-orchestrator-plug-in-for-redis/blob/main/dist/o11nplugin-redis.vmoapp?raw=true)
 
-### Supported platform version
+## Supported platform version
 The Redis plug-in supports vRO 8.4.2 and later.
 
-### Building the plug-in
+## Building the plug-in
 
 The plug-in can be built using standard Maven commands:
 
@@ -25,9 +25,9 @@ mvn clean install
 
 This will result in `vmoapp` and `dar` files in the `o11nplugin-redis/target` folder.
 
-### Sample scripting
+## Sample scripting
 
-##### Basic operations
+### Basic operations
 ```javascript
 //Store a simple key-value in redis
 var statusCode = connection.defaultDatabase.set("test-key", "test-value");
@@ -35,7 +35,7 @@ var statusCode = connection.defaultDatabase.set("test-key", "test-value");
 var value = connection.defaultDatabase.get("test-key");
 ```
 
-#####Scripting
+### Scripting
 ```javascript
 var script = "return {KEYS[1],KEYS[2],ARGV[1],ARGV[2]}";
 //Evaluate script
@@ -45,7 +45,7 @@ var sha = connection.defaultDatabase.scriptLoad(script);
 result = connection.defaultDatabase.evalsha(sha, ["key1", "key2"], ["arg1", "arg2"]);
 ```
 
-### Dependencies
+## Dependencies
 The Redis plug-in for vRO uses the following third-party libraries:
 * [Jedis](https://github.com/xetorthio/jedis) - a Java-based Redis client.
 * [Google Guava](https://github.com/google/guava) - core libraries for Java-based projects, distributed under the Apache License, Version 2.0
