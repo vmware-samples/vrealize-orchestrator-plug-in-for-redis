@@ -1,0 +1,13 @@
+.project
+.settings/
+build.log
+build/
+target/
+.classpath
+.DS_Store
+.idea
+*.iml
+*.iws
+.state
+*.factorypath
+o11nplugin-redis/src/main/dar/VSO-INF/vso.xml

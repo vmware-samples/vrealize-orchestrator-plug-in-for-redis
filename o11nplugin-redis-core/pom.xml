@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2021 VMware, Inc.
+  ~ SPDX-License-Identifier: GPL-3.0-only
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>o11nplugin-redis-core</artifactId>
+    <packaging>jar</packaging>
+
+    <parent>
+        <artifactId>redis</artifactId>
+        <groupId>com.vmware.o11n.plugin</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.vmware.o11n</groupId>
+            <artifactId>o11n-sdkapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vmware.o11n</groupId>
+            <artifactId>o11n-plugin-modeldriven-runtime</artifactId>
+            <version>${vco.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vmware.o11n</groupId>
+            <artifactId>o11n-provided-deps</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+    </dependencies>
+</project>

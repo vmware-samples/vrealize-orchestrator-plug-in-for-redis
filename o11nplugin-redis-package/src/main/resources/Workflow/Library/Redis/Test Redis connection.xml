@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+  ~ Copyright 2021 VMware, Inc.
+  ~ SPDX-License-Identifier: GPL-3.0-only
+  -->
+
+<workflow xmlns="http://vmware.com/vco/workflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://vmware.com/vco/workflow http://vmware.com/vco/workflow/Workflow-v4.xsd" root-name="item1" object-name="workflow:name=generic" id="5e260d32-62f7-4adf-834a-755ef0bb01ef" version="0.0.0" api-version="6.0.0" allowed-operations="vef" editor-version="2.0" restartMode="1" resumeFromFailedMode="0">
+  <display-name><![CDATA[Test Redis connection]]></display-name>
+  <position y="50.0" x="100.0"/>
+  <input>
+    <param name="connection" type="Redis:Connection"/>
+  </input>
+  <workflow-item name="item0" type="end" end-mode="0">
+    <in-binding/>
+    <position y="50.0" x="300.0"/>
+  </workflow-item>
+  <workflow-item name="item1" out-name="item0" type="task">
+    <display-name><![CDATA[Scriptable task]]></display-name>
+    <script encoded="false"><![CDATA[connection.defaultDatabase.set("plugin:tutorial", "Testing redis connection - success"); 
+var result = connection.defaultDatabase.get("plugin:tutorial"); 
+System.log(result); ]]></script>
+    <in-binding>
+      <bind name="connection" type="Redis:Connection" export-name="connection"/>
+    </in-binding>
+    <out-binding/>
+    <description><![CDATA[Simple task with custom script capability.]]></description>
+    <position y="60.0" x="160.0"/>
+  </workflow-item>
+  <presentation/>
+</workflow>

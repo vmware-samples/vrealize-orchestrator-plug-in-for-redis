@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright 2021 VMware, Inc.
+  ~ SPDX-License-Identifier: GPL-3.0-only
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.vmware.o11n.plugin</groupId>
+    <artifactId>redis</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <vco.version>8.4.2</vco.version>
+
+        <jedis.version>3.6.1</jedis.version>
+        <commons.pool.version>2.10.0</commons.pool.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vmware.o11n</groupId>
+                <artifactId>o11n-provided-deps</artifactId>
+                <version>${vco.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.vmware.o11n</groupId>
+                <artifactId>o11n-sdkapi</artifactId>
+                <version>${vco.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Third-party dependencies -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons.pool.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <modules>
+        <module>o11nplugin-redis-core</module>
+        <module>o11nplugin-redis-custom</module>
+        <module>o11nplugin-redis-gen</module>
+        <module>o11nplugin-redis-package</module>
+        <module>o11nplugin-redis</module>
+    </modules>
+</project>

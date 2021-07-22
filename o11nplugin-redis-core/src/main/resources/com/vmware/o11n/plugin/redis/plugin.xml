@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2021 VMware, Inc.
+  ~ SPDX-License-Identifier: GPL-3.0-only
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/task https://www.springframework.org/schema/task/spring-task.xsd
+            http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan base-package="com.vmware.o11n.plugin.redis">
+    </context:component-scan>
+
+    <import resource="classpath:com/vmware/o11n/plugin/sdk/spring/pluginEnv.xml"/>
+    <bean class="com.vmware.o11n.sdk.modeldriven.impl.PolicyService"/>
+    <bean class="com.vmware.o11n.sdk.modeldriven.impl.DefaultInventoryService"/>
+    <bean class="com.vmware.o11n.sdk.modeldriven.impl.DefaultObjectFactory"/>
+    <bean class="com.vmware.o11n.sdk.modeldriven.impl.DefaultCollectionFactory"/>
+    <bean class="com.vmware.o11n.sdk.modeldriven.impl.DefaultProxyResolver"/>
+    <bean class="com.vmware.o11n.sdk.modeldriven.impl.DefaultModelClassResolver"/>
+    <bean class="com.vmware.o11n.sdk.modeldriven.impl.DefaultRuntimeConfiguration">
+        <property name="properties">
+            <util:properties location="com/vmware/o11n/plugin/redis_gen/runtime-config.properties"/>
+        </property>
+    </bean>
+    <bean class="com.vmware.o11n.plugin.redis.RedisPluginFactory" id="pluginFactory" autowire-candidate="false"
+          scope="prototype"/>
+</beans>

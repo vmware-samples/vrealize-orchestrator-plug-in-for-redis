@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+  ~ Copyright 2021 VMware, Inc.
+  ~ SPDX-License-Identifier: GPL-3.0-only
+  -->
+
+<workflow xmlns="http://vmware.com/vco/workflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://vmware.com/vco/workflow http://vmware.com/vco/workflow/Workflow-v4.xsd" root-name="item1" object-name="workflow:name=generic" id="6c50720d-209d-4a22-ac76-f4e899dfe3d4" version="0.0.0" api-version="6.0.0" allowed-operations="vef" editor-version="2.0" restartMode="1" resumeFromFailedMode="0">
+  <display-name><![CDATA[Create new Redis connection]]></display-name>
+  <position y="50.0" x="100.0"/>
+  <input>
+    <param name="name" type="string"/>
+    <param name="host" type="string"/>
+    <param name="port" type="number"/>
+  </input>
+  <workflow-item name="item0" type="end" end-mode="0">
+    <in-binding/>
+    <position y="50.0" x="320.0"/>
+  </workflow-item>
+  <workflow-item name="item1" out-name="item0" type="task">
+    <display-name><![CDATA[Scriptable task]]></display-name>
+    <script encoded="false"><![CDATA[var connectionId = RedisConnectionManager.save(name, host, port);
+System.log("Created connection with ID: " + connectionId);]]></script>
+    <in-binding>
+      <bind name="name" type="string" export-name="name"/>
+      <bind name="host" type="string" export-name="host"/>
+      <bind name="port" type="number" export-name="port"/>
+    </in-binding>
+    <out-binding/>
+    <description><![CDATA[Simple task with custom script capability.]]></description>
+    <position y="60.0" x="170.0"/>
+  </workflow-item>
+  <presentation/>
+</workflow>

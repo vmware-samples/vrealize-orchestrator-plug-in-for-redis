@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright 2021 VMware, Inc.
+  ~ SPDX-License-Identifier: GPL-3.0-only
+  -->
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Exported from [server]</comment>
+<entry key="categoryPath">Library.Redis</entry>
+<entry key="categoryPathEscaped">TGlicmFyeQ==.UmVkaXM=</entry>
+<entry key="name">Test Redis connection</entry>
+<entry key="id">5e260d32-62f7-4adf-834a-755ef0bb01ef</entry>
+<entry key="type">Workflow</entry>
+</properties>
