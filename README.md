@@ -1,6 +1,6 @@
 # vRealize Orchestrator Plug-in for Redis
 
-The for vRealize Orchestrator Plug-in for Redis is a plug-in which provides integration capabilities with multiple
+The vRealize Orchestrator Plug-in for Redis is a plug-in which provides integration capabilities with multiple
 [Redis](http://redis.io/) instances.
 
 Plug-in features:
