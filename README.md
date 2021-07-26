@@ -17,7 +17,8 @@ The Redis plug-in supports vRO 8.4.2 and later.
 
 ## Building the plug-in
 
-The plug-in can be built using standard Maven commands:
+First, you need to install the vRO Plug-in SDK version 8.4.2 because the project depends on it.
+After that the plug-in can be built using standard Maven commands:
 
 ```bash
 mvn clean install
